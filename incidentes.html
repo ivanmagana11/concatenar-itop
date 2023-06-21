@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lanzador de incidentes de Itop</title>
+  <style>
+    /* Estilos CSS para la apariencia de la página */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+  
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+  
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    
+    a {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #f0f0f0;
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Introduce tu número de incidente Itop</h1>
+  <h2>Recuerda quitar el I-</h2>
+  <label for="dato">Dato:</label>
+  <input type="text" id="dato" value="">
+  
+  <button onclick="concatenarDatos()">Aplasta aquí</button>
+  
+  <h2>Dale control + clic y sale tu resultado:</h2>
+  <div id="resultado"></div>
+  
+  <script>
+    function concatenarDatos() {
+      // Obtener el valor ingresado por el usuario
+      var dato = document.getElementById("dato").value;
+      
+      // Concatenar el dato con la variable predefinida "a"
+      var resultado = "https://mservicio.fonacot.gob.mx/pages/UI.php?operation=modify&class=Incident&id=" + dato;
+      
+      // Crear un elemento de enlace (<a>) con el resultado como texto y URL
+      var enlace = document.createElement("a");
+      enlace.textContent = resultado;
+      enlace.href = resultado;
+      
+      // Mostrar el enlace en la página HTML
+      document.getElementById("resultado").appendChild(enlace);
+    }
+  </script>
+</body>
+</html>
